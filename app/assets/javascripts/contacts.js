@@ -1,4 +1,6 @@
 $(function(){
+    
+    // Function to validate the format of phone numbers in the new contact form
     $(document).on('click', '.btn-primary', function(e){
         e.preventDefault()
 
@@ -9,5 +11,11 @@ $(function(){
             alert('Phone Number Must Be In The Format ###-###-#### or ###-####')
         }
 
+    })
+
+    // Function to sort the list of contacts
+    $(document).on('click', 'th', function(e){
+        var sortBy = event.target.dataset.sortBy
+        location.href = '/contacts?sort=' + sortBy
     })
 })
