@@ -14,7 +14,7 @@
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 				<ul class="nav navbar-nav">
-					<li role="presentation" <%= 'class=active' if current_page?(controller: 'contacts', action: 'index') %>><%= link_to 'Home', contacts_path %></li>
+					<li role="presentation" <%= 'class=active' if current_page?(root_path) || current_page?(controller: 'contacts', action: 'index') %>><%= link_to 'Home', contacts_path %></li>
 					<li role="presentation" <%= 'class=active' if current_page?(controller: 'contacts', action: 'new') %>><%= link_to 'Add Contact', new_contact_path %></li>
 				</ul>
 	    </div>
