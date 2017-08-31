@@ -1,7 +1,7 @@
 $(function(){
 
     var path = window.location.pathname
-    if (!window.location.href.split('?')[1] && (path === '/' || path === '/contacts') && window.localStorage.sortBy) {
+    if (!window.location.href.includes('sort=') && (path === '/' || path === '/contacts') && window.localStorage.sortBy) {
         location.href = '/contacts?sort=' + window.localStorage.sortBy
     }
     
