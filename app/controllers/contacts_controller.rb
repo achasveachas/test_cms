@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   def index
-    @contacts = Contact.all.order(params[:sort] || :name)
+    @contacts = Contact.order(params[:sort] || :name).page(params[:page]).per(20)
   end
 
   def new
