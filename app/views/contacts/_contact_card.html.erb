@@ -1,0 +1,17 @@
+<h4><%= @contact.name%></h4>
+<div class="contact-card-child">
+    <%= image_tag "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(@contact.email.strip.downcase)}?d=https://lh5.googleusercontent.com/b-Jql03P36CNooFuW12n8OkT6_StQnZshef9oKPe69ugEVD5VfnzVZK4QZ_SCfC6dCyNhbtK8mJfcSE=w1920-h946" %>
+</div>
+<div class="contact-card-child">
+    <ul>
+    <% if @contact.email %>
+        <li><strong>Email:</strong> <%= mail_to @contact.email, @contact.email, subject: "Hello #{@contact.name}" %></li>
+    <% end %>
+    <% if @contact.phone %>
+        <li><strong>Phone Number:</strong> <%= @contact.phone %></li>
+    <% end %>
+    <% if @contact.birthday %>
+        <li><strong>Birthday:</strong> <%= @contact.birthday.strftime('%-m/%-d/%Y') %></li>
+    <% end %>
+</ul>
+</div>
