@@ -1,6 +1,7 @@
 <%= page_entries_info @contacts, entry_name: 'contacts' %><br><br>
 <table class="table">
   <tr>
+    <th></th>
     <th data-sort-by="name">Name</th>
     <th data-sort-by="email">E-mail</th>
     <th data-sort-by="phone">Phone</th>
@@ -8,6 +9,7 @@
  
   <% @contacts.each do |contact| %>
     <tr>
+      <td><%= image_tag "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(contact.email.strip.downcase)}?s=25&d=https://lh5.googleusercontent.com/ILMuk3_Youpp4F_veJZ6yAhJ6z5tqxnR4Y3VhVev36VU7pL4IcwOxJ7-dW2pQDCtIcBLDwccXDQkLYk=w1920-h946" %>
       <td><%= contact.name  %></td>
       <td><%= mail_to contact.email, contact.email, subject: "Hello #{contact.name}" %></td>
       <td><%= contact.phone %></td>
