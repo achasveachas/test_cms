@@ -5,6 +5,7 @@
     <th data-sort-by="name">Name</th>
     <th data-sort-by="email">E-mail</th>
     <th data-sort-by="phone">Phone</th>
+    <th></th>
   </tr>
  
   <% @contacts.each do |contact| %>
@@ -13,6 +14,7 @@
       <td><%= contact.name  %></td>
       <td><%= mail_to contact.email, contact.email, subject: "Hello #{contact.name}" %></td>
       <td><%= contact.phone %></td>
+      <td><%= button_to "Delete", contact, :method => :delete, :data => {:confirm => "Are You Sure?"} %></td>
     </tr>
   <% end %>
 </table>
