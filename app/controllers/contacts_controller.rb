@@ -8,7 +8,8 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new params.require(:contact).
-                                  permit(:name, :email, :phone, :birthday)
+                                  permit(:name, :email, :phone)
+    @contact.birthday = Date.strptime(params[:contact][:birthday], "%m/%d/%Y")
     @contact.save
 
     if @contact.errors.any?
