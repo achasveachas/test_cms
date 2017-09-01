@@ -14,7 +14,7 @@
       <td><%= contact.name  %></td>
       <td><%= mail_to contact.email, contact.email, subject: "Hello #{contact.name}" %></td>
       <td><%= contact.phone %></td>
-      <td><%= button_to "Delete", contact, :method => :delete, :data => {:confirm => "Are You Sure?"} %></td>
+      <td><%= button_to "Delete", contact, :method => :delete, :data => {:confirm => "Are You Sure?"}, :class => 'btn' %></td>
     </tr>
   <% end %>
 </table>
