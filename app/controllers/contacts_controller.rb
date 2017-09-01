@@ -3,6 +3,11 @@ class ContactsController < ApplicationController
     @contacts = Contact.order(params[:sort] || :name).page(params[:page]).per(20)
   end
 
+  def show
+    @contact = Contact.find_by(:id => params[:id])
+    render partial: 'contact_card'
+  end
+
   def new
   end
 
