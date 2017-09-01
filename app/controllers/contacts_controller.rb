@@ -12,9 +12,10 @@ class ContactsController < ApplicationController
   end
 
   def create
+
     @contact = Contact.new params.require(:contact).
                                   permit(:name, :email, :phone)
-    @contact.birthday = Date.strptime(params[:contact][:birthday], "%m/%d/%Y")
+    @contact.birthday = Date.strptime(params[:contact][:birthday], "%m/%d/%Y") unless params[:contact][:birthday].empty?
     @contact.save
 
     if @contact.errors.any?
