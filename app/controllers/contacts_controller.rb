@@ -18,4 +18,10 @@ class ContactsController < ApplicationController
       redirect_to contacts_path
     end
   end
+
+  def destroy
+    @contact = Contact.find_by(:id => params[:id])
+    @contact.destroy
+    redirect_to contacts_path
+  end
 end
