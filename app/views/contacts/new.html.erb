@@ -30,7 +30,7 @@
 
   <div class="input-group">
     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
-    <%= f.date_select :birthday, :class => "form-control" %>
+    <%= f.text_field :birthday, :class => "form-control", :data => {:provide => 'datepicker'} %>
   </div>
  
   <div class="input-group">
