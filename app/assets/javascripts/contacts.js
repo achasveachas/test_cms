@@ -10,7 +10,7 @@ $(function(){
         e.preventDefault()
 
         var phoneNumber = $('#contact_phone').val()
-        if (phoneNumber.match(/^(\d{3}-\d{3}-\d{4}|\d{3}-\d{4})$/)) {
+        if (validatePhone(phoneNumber)) {
             $('form').submit()
         } else {
             alert('Phone Number Must Be In The Format ###-###-#### or ###-####')
@@ -26,3 +26,7 @@ $(function(){
     })
 
 })
+
+function validatePhone (phoneNumber) {
+    return !!phoneNumber.match(/^(\d{3}-\d{3}-\d{4}|\d{3}-\d{4})$/)
+}
