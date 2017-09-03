@@ -1,9 +1,5 @@
 $(function(){
 
-    var path = window.location.pathname
-    if (!window.location.href.includes('sort=') && (path === '/' || path === '/contacts') && window.localStorage.sortBy) {
-        location.href = '/contacts?sort=' + window.localStorage.sortBy
-    }
     
     // Function to validate the format of phone numbers in the new contact form
     $(document).on('click', '.btn-primary', function(e){
