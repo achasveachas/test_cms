@@ -1,6 +1,6 @@
 class Contact < ApplicationRecord
   has_many :telephones, :dependent => :destroy
-  accepts_nested_attributes_for :telephones
+  accepts_nested_attributes_for :telephones, reject_if: proc { |attr| attr['number'].empty? }
   
   validates :name, presence: true
   validates :email, uniqueness: {scope: :name}
