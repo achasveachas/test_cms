@@ -8,8 +8,10 @@
         <% if @contact.email %>
             <li><strong>Email:</strong> <%= mail_to @contact.email, @contact.email, subject: "Hello #{@contact.name}" %></li>
         <% end %>
-        <% if @contact.phone %>
-            <li><strong>Phone Number:</strong> <%= @contact.phone %></li>
+        <% if @contact.telephones.size >= 1 %>
+            <% @contact.telephones.each do |telephone| %>
+                <li><strong>Phone Number:</strong> <%= telephone.number %></li>
+            <% end %>
         <% end %>
         <% if @contact.birthday %>
             <li><strong>Birthday:</strong> <%= @contact.birthday.strftime('%-m/%-d/%Y') %></li>
