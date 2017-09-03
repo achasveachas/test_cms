@@ -15,5 +15,6 @@
             <li><strong>Birthday:</strong> <%= @contact.birthday.strftime('%-m/%-d/%Y') %></li>
         <% end %>
         </ul>
+        <%= link_to "Edit Contact", edit_contact_path(@contact) %>
     </div>
 </div>
