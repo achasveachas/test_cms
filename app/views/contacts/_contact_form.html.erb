@@ -1,0 +1,39 @@
+<%= form_for @contact do |f| %>
+
+  <% if @contact && @contact.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    Contact could not be saved due to the following <%= "error".pluralize(@contact.errors.count) %>:
+    <ul>
+      <% @contact.errors.full_messages.each do |error_message| %>
+        <li><%= error_message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="input-group">
+    <span class="input-group-addon"><%= f.label :name  %></span>
+    <%= f.text_field :name, :class => "form-control" %>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">@</span>
+    <%= f.email_field :email, :class => "form-control" %>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></span>
+    <%= f.text_field :phone, :class => "form-control", :placeholder => "###-###-####" %>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+    <%= f.text_field :birthday, :class => "form-control", :data => {:provide => 'datepicker'} %>
+  </div>
+ 
+  <div class="input-group">
+    <%= f.submit :class => 'btn btn-primary' %>
+  </div>
+<% end %>
