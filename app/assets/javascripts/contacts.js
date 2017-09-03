@@ -5,7 +5,7 @@ $(function(){
     $(document).on('click', '.btn-primary', function(event){
         event.preventDefault()
 
-        var phoneNumber = $('#contact_phone').val()
+        var phoneNumber = $('.phone-field').val()
         if (validatePhone(phoneNumber)) {
             $('form').submit()
         } else {

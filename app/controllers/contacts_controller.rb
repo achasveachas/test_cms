@@ -11,6 +11,7 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
+    @telephone = @contact.telephones.build
   end
 
   def create
