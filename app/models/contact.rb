@@ -9,4 +9,8 @@ class Contact < ApplicationRecord
   def gravatar_hash
     Digest::MD5.hexdigest(self.email.strip.downcase)
   end
+
+  def default_phone
+    self.telephones.where(default: true).first
+  end
 end
