@@ -1,5 +1,6 @@
 class Contact < ApplicationRecord
-  has_many :telephones
+  has_many :telephones, :dependent => :destroy
+  accepts_nested_attributes_for :telephones
   
   validates :name, presence: true
   validates :email, uniqueness: {scope: :name}
