@@ -42,7 +42,7 @@ function validatePhone (phoneNumber) {
 }
 
 function getContact(id, target){
-    $.ajax('/contacts/' + 876786)
+    $.ajax('/contacts/' + id)
         .done(function(data){
             
             $('#contact-card-' + id).html(data)
