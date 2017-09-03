@@ -31,7 +31,16 @@ class ContactsController < ApplicationController
   end
 
   def update
+    @contact = Contact.find_by(:id => params[:id])
+    @contact.update_attributes(contact_params)
+    @contact.birthday = Date.strptime(params[:contact][:birthday], "%m/%d/%Y") unless params[:contact][:birthday].empty?
+    @contact.save
 
+    if @contact.errors.any?
+      render :new
+    else
+      redirect_to contacts_path
+    end
   end
 
   def destroy
