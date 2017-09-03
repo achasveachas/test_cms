@@ -27,6 +27,14 @@ class ContactsController < ApplicationController
     end
   end
 
+  def edit
+    @contact = Contact.find_by(:id => params[:id])
+  end
+
+  def update
+
+  end
+
   def destroy
     @contact = Contact.find_by(:id => params[:id])
     @contact.destroy
