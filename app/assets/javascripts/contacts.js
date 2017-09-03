@@ -42,12 +42,16 @@ function validatePhone (phoneNumber) {
 }
 
 function getContact(id, target){
-    $.get('/contacts/' + id, function(data){
-        
-        $('#contact-card-' + id).html(data)
+    $.ajax('/contacts/' + 876786)
+        .done(function(data){
+            
+            $('#contact-card-' + id).html(data)
 
-        $(target).closest("tr").next().find('p').slideToggle();
-    })
+            $(target).closest("tr").next().find('p').slideToggle();
+        })
+        .fail(function(error){
+            console.log(error.responseText)
+        })
 }
 
 function toggleContact(target){
