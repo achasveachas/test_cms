@@ -9,12 +9,15 @@
   </tr>
  
   <% @contacts.each do |contact| %>
-    <tr>
+    <tr data-id="<%= contact.id %>">
       <td><%= image_tag "https://www.gravatar.com/avatar/#{contact.gravatar_hash}?s=25&d=https://lh5.googleusercontent.com/ILMuk3_Youpp4F_veJZ6yAhJ6z5tqxnR4Y3VhVev36VU7pL4IcwOxJ7-dW2pQDCtIcBLDwccXDQkLYk=w1920-h946" %></td>
       <td><%= contact.name  %></td>
       <td><%= mail_to contact.email, contact.email, subject: "Hello #{contact.name}" %></td>
       <td><%= contact.phone %></td>
       <td><%= button_to "Delete", contact, :method => :delete, :data => {:confirm => "Are You Sure?"}, :class => 'btn' %></td>
+    </tr>
+    <tr>
+      <td colspan="5"><p id="contact-card-<%= contact.id %>"></p></td>
     </tr>
   <% end %>
 </table>
