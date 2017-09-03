@@ -8,10 +8,16 @@
         <% if @contact.email %>
             <li><strong>Email:</strong> <%= mail_to @contact.email, @contact.email, subject: "Hello #{@contact.name}" %></li>
         <% end %>
-        <% if @contact.telephones.size >= 1 %>
-            <% @contact.telephones.each do |telephone| %>
-                <li><strong>Phone Number:</strong> <%= telephone.number %></li>
-            <% end %>
+
+        <li><strong>Default Phone: <%= @contact.default_phone&.location[0] %>:</strong> <%= @contact.default_phone&.number %></li>
+        <% if @contact.other_phones.size >= 1 %>
+            <li><strong>Other Phones:
+                <ul>
+                <% @contact.other_phones.each do |telephone| %>
+                    <li><strong> <%= telephone.location[0] %>:</strong> <%= telephone.number %></li>
+                <% end %>
+                </ul>
+            </li>
         <% end %>
         <% if @contact.birthday %>
             <li><strong>Birthday:</strong> <%= @contact.birthday.strftime('%-m/%-d/%Y') %></li>

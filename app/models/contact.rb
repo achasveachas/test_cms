@@ -13,4 +13,8 @@ class Contact < ApplicationRecord
   def default_phone
     self.telephones.where(default: true).first
   end
+
+  def other_phones
+    self.telephones.reject {|phone| phone == self.default_phone}
+  end
 end
