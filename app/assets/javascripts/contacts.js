@@ -56,7 +56,7 @@ function getContact(id, target){
 
 function toggleContact(target){
     if ( $(target).closest("td").attr("colspan") > 1 ) {
-        $(target).slideUp();
+        $(target).find('p').slideUp();
     } else {
         $(target).closest("tr").next().find('p').slideToggle();
     } 
