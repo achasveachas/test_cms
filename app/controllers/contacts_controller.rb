@@ -33,6 +33,7 @@ class ContactsController < ApplicationController
   end
 
   def update
+
     @contact = Contact.find_by(:id => params[:id])
     @contact.update_attributes(contact_params)
     @contact.birthday = Date.strptime(params[:contact][:birthday], "%m/%d/%Y") unless params[:contact][:birthday].empty?
@@ -54,6 +55,6 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :notes, :telephones_attributes => [:number, :location, :default])
+    params.require(:contact).permit(:name, :email, :notes, :telephones_attributes => [:number, :location, :default, :id])
   end
 end
