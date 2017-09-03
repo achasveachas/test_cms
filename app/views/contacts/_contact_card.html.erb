@@ -17,4 +17,7 @@
         </ul>
         <%= link_to "Edit Contact", edit_contact_path(@contact) %>
     </div>
+    <div class="contact-card-child">
+       <strong>Notes: </strong><%= simple_format(@contact.notes) %>
+    </div>
 </div>
