@@ -22,7 +22,7 @@ $(function(){
     })
 
     // Function to open the contact card
-    $('td[colspan=5]').find('p').hide();
+    $('td[colspan=5]').find('card').hide();
     $(document).on('click', 'tr', function(event){
         var id = event.currentTarget.dataset.id
         var target = event.target
@@ -47,7 +47,7 @@ function getContact(id, target){
             
             $('#contact-card-' + id).html(data)
 
-            $(target).closest("tr").next().find('p').slideToggle();
+            $(target).closest("tr").next().find('card').slideToggle();
         })
         .fail(function(error){
             console.log(error.responseText)
@@ -56,8 +56,8 @@ function getContact(id, target){
 
 function toggleContact(target){
     if ( $(target).closest("td").attr("colspan") > 1 ) {
-        $(target).find('p').slideUp();
+        $(target).find('card').slideUp();
     } else {
-        $(target).closest("tr").next().find('p').slideToggle();
+        $(target).closest("tr").next().find('card').slideToggle();
     } 
 }
