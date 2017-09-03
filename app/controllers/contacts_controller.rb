@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
-    @telephone = @contact.telephones.build
+    @contact.telephones.build
   end
 
   def create
@@ -29,6 +29,7 @@ class ContactsController < ApplicationController
 
   def edit
     @contact = Contact.find_by(:id => params[:id])
+    @contact.telephones.build
   end
 
   def update
@@ -38,7 +39,7 @@ class ContactsController < ApplicationController
     @contact.save
 
     if @contact.errors.any?
-      render :new
+      render :edit
     else
       redirect_to contacts_path
     end
