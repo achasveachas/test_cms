@@ -54,6 +54,9 @@ $(function(){
             $(this).attr('name', newName)
         })
 
+        $(newForm).find(':radio').val(howManyForms)
+
+
         $(newForm).insertAfter(lastPhoneForm)
     })
 })
