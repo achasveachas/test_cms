@@ -23,11 +23,13 @@
     <%= f.email_field :email, :class => "form-control" %>
   </div>
   <%= f.fields_for :telephones do |phone_form| %>
-    <div class="input-group">
-      <span class="input-group-addon"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><span class="col-2"></span></span>
-      <%= phone_form.select :location, ["Home", "Work", "Mobile", "Fax"], {}, :class => "form-control" %>
-      <%= phone_form.text_field :number, :class => "form-control phone-field", :placeholder => "###-###-####" %>
-      
+    <div class="phone-form">
+      <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><span class="col-2"></span></span>
+        <%= phone_form.select :location, ["Home", "Work", "Mobile", "Fax"], {}, :class => "form-control" %>
+        <%= phone_form.text_field :number, :class => "form-control phone-field", :placeholder => "###-###-####" %>
+      </div>
+      <%= link_to 'Add Another Phone Number', '#', :class => "duplicate-phone-form" %>      
     </div>
   <% end %>
 

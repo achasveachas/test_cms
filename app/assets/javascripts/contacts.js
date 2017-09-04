@@ -32,8 +32,29 @@ $(function(){
         } else {
             toggleContact(target)
         }
+    })
 
+    // Function to add fields for phone numbers
+    var phoneForm = $('.phone-form').last().clone()
+    $(document).on('click', '.duplicate-phone-form', function(event){
+        event.preventDefault()
 
+        var lastPhoneForm = $('.phone-form').last()
+        var newForm = $(phoneForm).clone()
+        var howManyForms = $('.phone-form').length
+
+        $(newForm).find('select', 'input').each(function(){
+            var oldID = $(this).attr('id')
+            var newID = oldID.replace(new RegExp(/_[0-9]+_/), "_" + howManyForms + "_")
+
+            var oldName = $(this).attr('name')
+            var newName = oldName.replace(new RegExp(/\[[0-9]+\]/), "[" + howManyForms + "]")
+
+            $(this).attr('id', newID)
+            $(this).attr('name', newName)
+        })
+
+        $(newForm).insertAfter(lastPhoneForm)
     })
 })
 
