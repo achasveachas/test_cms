@@ -9,7 +9,7 @@
             <li><strong>Email:</strong> <%= mail_to @contact.email, @contact.email, subject: "Hello #{@contact.name}" %></li>
         <% end %>
 
-        <li><strong>Default Phone: <%= @contact.default_phone&.location[0] %>:</strong> <%= @contact.default_phone&.number %></li>
+        <li><strong>Default Phone: <%= "#{@contact.default_phone.location[0]}:" if @contact.default_phone %></strong> <%= @contact.default_phone&.number %></li>
         <% if @contact.other_phones.size >= 1 %>
             <li><strong>Other Phones:
                 <ul>
