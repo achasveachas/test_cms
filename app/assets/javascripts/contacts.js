@@ -43,7 +43,7 @@ $(function(){
         var newForm = $(phoneForm).clone()
         var howManyForms = $('.phone-form').length
 
-        $(newForm).find('select', 'input').each(function(){
+        $(newForm).find('select, input').each(function(){
             var oldID = $(this).attr('id')
             var newID = oldID.replace(new RegExp(/_[0-9]+_/), "_" + howManyForms + "_")
 
