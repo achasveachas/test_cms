@@ -29,8 +29,9 @@
         <%= phone_form.select :location, ["Home", "Work", "Mobile", "Fax"], {}, :class => "form-control" %>
         <%= phone_form.text_field :number, :class => "form-control phone-field", :placeholder => "###-###-####" %>
       </div>
-      <%= link_to 'Add Another Phone Number', '#', :class => "duplicate-phone-form" %>      
-    </div>
+      Default: <%= radio_button_tag "contact[telephones_attributes][#{phone_form.index}][default]", true %> | 
+      <%= link_to '+ Add Another Phone Number', '#', :class => "duplicate-phone-form" %>      
+    </div><br>
   <% end %>
 
   <div class="input-group">
