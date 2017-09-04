@@ -17,6 +17,7 @@ class ContactsController < ApplicationController
   def create
     default_index = params[:contact][:default_telephone]
     params[:contact][:telephones_attributes][default_index][:default] = true
+    
     @contact = Contact.new(contact_params)
     @contact.birthday = Date.strptime(params[:contact][:birthday], "%m/%d/%Y") unless params[:contact][:birthday].empty?
     @contact.save
@@ -34,6 +35,8 @@ class ContactsController < ApplicationController
   end
 
   def update
+    default_index = params[:contact][:default_telephone]
+    params[:contact][:telephones_attributes][default_index][:default] = true
 
     @contact = Contact.find_by(:id => params[:id])
     @contact.update_attributes(contact_params)
