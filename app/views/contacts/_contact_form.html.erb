@@ -24,16 +24,16 @@
   </div>
   <%= f.fields_for :telephones do |phone_form| %>
     <div class="phone-form">
+    <br>
+      Default: <%= radio_button_tag "contact[default_telephone]", phone_form.index, phone_form.object.default, :class => "custom-control-input" %>
       <div class="input-group">
         <span class="input-group-addon"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><span class="col-2"></span></span>
         <%= phone_form.select :location, ["Home", "Work", "Mobile", "Fax"], {}, :class => "form-control" %>
         <%= phone_form.text_field :number, :class => "form-control phone-field", :placeholder => "###-###-####" %>
       </div>
-      Default: <%= radio_button_tag "contact[default_telephone]", phone_form.index, phone_form.object.default %> | 
-      <%= link_to '+ Add Another Phone Number', '#', :class => "duplicate-phone-form" %>      
-    </div><br>
+    </div>
   <% end %>
-
+  <%= button_to '+', nil, :class => "duplicate-phone-form btn" %><br>
   <div class="input-group">
     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
     <%= f.text_field :birthday, :class => "form-control", :data => {:provide => 'datepicker'}, :value => @contact.birthday&.strftime('%-m/%-d/%Y') %>
