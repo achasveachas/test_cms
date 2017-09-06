@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   def index
     session[:sort] = params[:sort] if params[:sort]
-    @contacts = Contact.order(session[:sort] || :name).page(params[:page]).per(20)
+    @contacts = Contact.sort_by(session[:sort] || "name").page(params[:page]).per(20)
   end
 
   def show

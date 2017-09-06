@@ -5,6 +5,14 @@ class Contact < ApplicationRecord
   validates :email, uniqueness: {scope: :name}
   validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
+  def self.sort_by(search_param)
+    if search_param == "phone"
+      self.joins(:telephones).merge(Telephone.where(default: true)).order("telephones.number")
+    else
+      self.order(search_param)
+    end
+  end
+
   def gravatar_hash
     Digest::MD5.hexdigest(self.email.strip.downcase)
   end
