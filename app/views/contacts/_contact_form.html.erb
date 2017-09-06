@@ -1,16 +1,16 @@
 <%= form_for @contact do |f| %>
 
   <% if @contact && @contact.errors.any? %>
-  <div class="alert alert-danger" role="alert">
-    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-    <span class="sr-only">Error:</span>
-    Contact could not be saved due to the following <%= "error".pluralize(@contact.errors.count) %>:
-    <ul>
-      <% @contact.errors.full_messages.each do |error_message| %>
-        <li><%= error_message %></li>
-      <% end %>
-    </ul>
-  </div>
+    <div class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      Contact could not be saved due to the following <%= "error".pluralize(@contact.errors.count) %>:
+      <ul>
+        <% @contact.errors.full_messages.each do |error_message| %>
+          <li><%= error_message %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
  
   <div class="input-group">
@@ -24,7 +24,7 @@
   </div>
   <%= f.fields_for :telephones do |phone_form| %>
     <div class="phone-form">
-    <br>
+      <br>
       Default: <%= radio_button_tag "contact[default_telephone]", phone_form.index, phone_form.object.default, :class => "custom-control-input" %>
       <div class="input-group">
         <span class="input-group-addon"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><span class="col-2"></span></span>
@@ -33,7 +33,8 @@
       </div>
     </div>
   <% end %>
-  <%= button_to '+', nil, :class => "duplicate-phone-form btn" %><br>
+  <%= link_to '+', "#", :class => "duplicate-phone-form btn btn-info btn-xs" %><br><br>
+  
   <div class="input-group">
     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
     <%= f.text_field :birthday, :class => "form-control", :data => {:provide => 'datepicker'}, :value => @contact.birthday&.strftime('%-m/%-d/%Y') %>
