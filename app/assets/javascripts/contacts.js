@@ -6,7 +6,7 @@ $(function(){
         event.preventDefault()
 
         var phoneNumber = $('.phone-field').val()
-        if (validatePhone(phoneNumber)) {
+        if (!phoneNumber || validatePhone(phoneNumber)) {
             $('form').submit()
         } else {
             alert('Phone Number Must Be In The Format ###-###-#### or ###-####')
