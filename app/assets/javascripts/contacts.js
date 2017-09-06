@@ -15,7 +15,7 @@ $(function(){
     })
 
     // Function to sort the list of contacts
-    $(document).on('click', 'th', function(event){
+    $(document).on('click', '.sortable', function(event){
         var sortBy = event.target.dataset.sortBy
         window.localStorage.sortBy = sortBy
         location.href = '/contacts?sort=' + sortBy
